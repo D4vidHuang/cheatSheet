@@ -1,0 +1,14 @@
+{
+  "scope": "Manually constructed Java toy, not dataset or model performance",
+  "miner_version": "bundled RefactoringMiner 3.0.10",
+  "eligible": true,
+  "strict_success": true,
+  "noop_detected_types": [],
+  "gold_detected_types": [
+    "Extract Method"
+  ],
+  "baseline_tests": 2,
+  "gold_tests": 2,
+  "candidate_tests": 2,
+  "private_receipt_sha256": "6c6d786a22419324a0140e950b0b29a6956660bd5abcac24a3204b4e18d176b7"
+}

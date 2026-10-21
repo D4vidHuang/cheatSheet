@@ -1,0 +1,5 @@
+# Resolve on the GPU server, then freeze the exact environment before a run.
+# Qwen3.8 official recipe: https://recipes.vllm.ai/Qwen/Qwen3.8-27B
+vllm>=0.17.0
+transformers>=5.8.0
+huggingface_hub

@@ -1,0 +1,54 @@
+# macOS and editors
+.DS_Store
+._*
+.idea/
+.vscode/
+*.swp
+*~
+
+# Original benchmark archives, third-party source, and answers stay local.
+/data/*
+!/data/README.md
+
+# Recreated source trees, model weights, caches, and generated experiment data
+/.cache/
+/models/
+/checkpoints/
+/workspaces/
+/artifacts/
+/runs/
+/outputs/
+/logs/
+/prepared/
+/vendor/
+slurm-*.out
+*.log
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+
+# Python/build environments
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage*
+htmlcov/
+.venv/
+venv/
+build/
+dist/
+
+# Local server settings, credentials, and dependency freezes
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+/configs/server.local.json
+/configs/repositories.local.json
+/requirements-inference.lock.txt

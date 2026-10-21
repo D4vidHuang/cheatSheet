@@ -1,0 +1,76 @@
+{
+  "checked_at_utc": "2026-10-21T15:07:19.387032+00:00",
+  "jobs": [
+    {
+      "model": "qwen35-2b",
+      "job_id": "27798",
+      "limit": 2,
+      "split": "pilot",
+      "scheduler_state": "PENDING|(ReqNodeNotAvail, UnavailableNodes:gpu50)",
+      "accounting": "27798|PENDING|00:00:00||0:0",
+      "model_record_count": 0,
+      "nonempty_model_outputs": 0,
+      "record_status_counts": {}
+    },
+    {
+      "model": "qwen35-4b",
+      "job_id": "27799",
+      "limit": 2,
+      "split": "pilot",
+      "scheduler_state": "PENDING|(Dependency)",
+      "accounting": "27799|PENDING|00:00:00||0:0",
+      "model_record_count": 0,
+      "nonempty_model_outputs": 0,
+      "record_status_counts": {}
+    },
+    {
+      "model": "qwen35-9b",
+      "job_id": "27800",
+      "limit": 2,
+      "split": "pilot",
+      "scheduler_state": "PENDING|(Dependency)",
+      "accounting": "27800|PENDING|00:00:00||0:0",
+      "model_record_count": 0,
+      "nonempty_model_outputs": 0,
+      "record_status_counts": {}
+    },
+    {
+      "model": "qwen38-27b",
+      "job_id": "27801",
+      "limit": 2,
+      "split": "pilot",
+      "scheduler_state": "PENDING|(Dependency)",
+      "accounting": "27801|PENDING|00:00:00||0:0",
+      "model_record_count": 0,
+      "nonempty_model_outputs": 0,
+      "record_status_counts": {}
+    }
+  ],
+  "unique_gpu_node_states": {
+    "drain": 11,
+    "drng": 15,
+    "drain*": 1
+  },
+  "requested_smoke_tasks": 8,
+  "model_outputs_observed": 0,
+  "status": "blocked_by_cluster_maintenance",
+  "models": [
+    "qwen35-2b",
+    "qwen35-4b",
+    "qwen35-9b",
+    "qwen38-27b"
+  ],
+  "planned_formal_test_tasks_per_model": 891,
+  "formal_inference_completed": false,
+  "functional_performance": null,
+  "cluster_announcement": {
+    "url": "https://mattermost.tudelft.nl/daic/pl/54d4n1fuqbrjdy6eba6se6cx9a",
+    "source": "User-provided Koen Mulderij announcement: kernel vulnerability drain and reboot; existing jobs continue, new jobs do not start."
+  },
+  "remaining_before_formal_scores": [
+    "GPU allocation and real generation",
+    "Per-project historical JDK/build/test configurations",
+    "Complete task-specific gold patches with positive/no-op controls",
+    "Independent repository scoring and paired grouped analysis"
+  ]
+}

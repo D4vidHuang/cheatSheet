@@ -1,0 +1,27 @@
+{
+  "context_policy": "stored_before_file_only",
+  "gold_boundary": "gold.jsonl is evaluation-only; never supplied to generator",
+  "gold_sha256": "c13ad9f49a14c522c262cf99954362ad790db4f283d41bbdc941f7eb596f2973",
+  "schema_version": 1,
+  "source_filename": "pure_refactoring_data.json",
+  "source_sha256": "69e1846e6f1624cb693262de2648c973470ee2ce8a753e38d1666f5d620c3fdc",
+  "split_group_counts": {
+    "dev": 44,
+    "pilot": 44,
+    "test": 357
+  },
+  "split_ratios_by_group": {
+    "dev": 0.1,
+    "pilot": 0.1,
+    "test": 0.8
+  },
+  "split_seed": 42,
+  "split_task_counts": {
+    "dev": 92,
+    "pilot": 116,
+    "test": 891
+  },
+  "task_count": 1099,
+  "task_mode": "instruction_conditioned_refactoring",
+  "tasks_sha256": "d55bedea2e3559d82a80459a8d7633e9ad03e229dcffc7c453087f7f141af8c5"
+}

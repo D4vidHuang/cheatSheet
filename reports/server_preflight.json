@@ -1,0 +1,50 @@
+{
+  "checked_at_utc": "2026-10-21T15:04:32.706777+00:00",
+  "ssh_host": "daic01",
+  "ready_for_setup": true,
+  "ssh_returncode": 0,
+  "hostname": "daic01.hpc.tudelft.net",
+  "user": "yhuang18",
+  "kerberos": {
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "share": {
+    "path": "/tudelft.net/staff-umbrella/cheatsheet research",
+    "exists": true,
+    "readable": true,
+    "writable": true,
+    "write_read_delete_verified": true
+  },
+  "association": {
+    "returncode": 0,
+    "stdout": "tudhpc|daic-eemcs-st-se|yhuang18||normal,reservation",
+    "stderr": ""
+  },
+  "queue": {
+    "returncode": 0,
+    "stdout": "27801|swe-refactor-qwen|PENDING|(Dependency)\n27800|swe-refactor-qwen|PENDING|(Dependency)\n27799|swe-refactor-qwen|PENDING|(Dependency)\n27798|swe-refactor-qwen|PENDING|(ReqNodeNotAvail, UnavailableNodes:gpu50)",
+    "stderr": ""
+  },
+  "gpu_inventory": {
+    "returncode": 0,
+    "stdout": "test|(null)|up\nall*|gpu:nvidia_a40:3(S:2,4,7)|up\nall*|gpu:nvidia_l40:3(S:1-3)|up\nall*|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-all|gpu:nvidia_a40:3(S:2,4,7)|up\ndaic-all|gpu:nvidia_l40:3(S:1-3)|up\ndaic-all|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-abe-ar|(null)|up\ndaic-abe-ur-uds|(null)|up\ndaic-ae-asm|(null)|up\ndaic-ae-co|(null)|up\ndaic-as-imphys|(null)|up\ndaic-eemcs-ese|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-eemcs-insy|gpu:nvidia_l40:3(S:1-3)|up\ndaic-eemcs-insy|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-eemcs-insy|gpu:nvidia_a40:3(S:2,4,7)|up\ndaic-eemcs-insy-prb|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-mmll|(null)|up\ndaic-eemcs-me|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-eemcs-me-sps|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-eemcs-st|gpu:nvidia_a40:3(S:2,4,7)|up\ndaic-eemcs-st|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-me-cor|gpu:nvidia_a40:3(S:2,4,7)|up\ndaic-me-cor|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up\ndaic-me-dcsc|gpu:nvidia_rtx_pro_6000:2(S:0-1)|up",
+    "stderr": ""
+  },
+  "node_states": {
+    "returncode": 0,
+    "stdout": "gpu12|drain|gpu:nvidia_a40:3(S:2,4,7)\ngpu12|drain|gpu:nvidia_a40:3(S:2,4,7)\ngpu12|drain|gpu:nvidia_a40:3(S:2,4,7)\ngpu23|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu23|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu23|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu24|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu24|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu24|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu29|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu29|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu29|drng|gpu:nvidia_a40:3(S:2,4,7)\ngpu30|drng|gpu:nvidia_l40:3(S:1-3)\ngpu30|drng|gpu:nvidia_l40:3(S:1-3)\ngpu30|drng|gpu:nvidia_l40:3(S:1-3)\ngpu31|drng|gpu:nvidia_l40:3(S:1-3)\ngpu31|drng|gpu:nvidia_l40:3(S:1-3)\ngpu31|drng|gpu:nvidia_l40:3(S:1-3)\ngpu36|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu36|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu36|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu37|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu37|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu37|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu38|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu38|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu38|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu39|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu39|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu39|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu40|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu40|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu40|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu41|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu41|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu41|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu42|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu42|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu42|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu43|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu43|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu43|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu44|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu44|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu44|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu45|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu45|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu45|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu45|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu46|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu46|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu46|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu47|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu47|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu47|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu48|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu48|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu48|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu49|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu49|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu49|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu50|drain*|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu50|drain*|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu50|drain*|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu51|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu51|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu51|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu52|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu52|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu52|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu53|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu53|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu53|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu54|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu54|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu54|drng|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu55|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu55|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu55|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu56|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu56|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ngpu56|drain|gpu:nvidia_rtx_pro_6000:2(S:0-1)\ntest01|drain|(null)\ntest02|drain|(null)",
+    "stderr": ""
+  },
+  "tools": {
+    "python3": "/usr/bin/python3",
+    "uv": "/home/yhuang18/linuxhome/.local/bin/uv",
+    "java": null,
+    "mvn": null,
+    "sbatch": "/usr/bin/sbatch",
+    "apptainer": "/usr/bin/apptainer"
+  },
+  "gpu_allocated_by_this_check": false,
+  "gpu_allocation_verified": false
+}

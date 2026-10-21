@@ -1,0 +1,8 @@
+{
+  "ssh_host": "daic01",
+  "account": "daic-eemcs-st-se",
+  "partition": "all",
+  "gres": "gpu:nvidia_rtx_pro_6000:1",
+  "remote_root": "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021",
+  "note": "Dedicated new path. A configuration template, not an allocated GPU. Check partition/account eligibility before sbatch. Do not overwrite older CheatSheet or cheat experiments."
+}

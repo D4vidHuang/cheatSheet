@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "verified_at": "2026-10-21",
+  "source": "https://huggingface.co/api/models/Qwen/",
+  "selection_note": "User confirmed Qwen3.5-9B on 2026-10-21. Main experiment: qwen35-2b, qwen35-4b, qwen35-9b, qwen38-27b. qwen3-8b remains an optional cross-family control and is not in the main four-model run.",
+  "models": {
+    "qwen35-2b": {
+      "model_id": "Qwen/Qwen3.5-2B",
+      "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc",
+      "parameters_including_vision": 2274069824
+    },
+    "qwen35-4b": {
+      "model_id": "Qwen/Qwen3.5-4B",
+      "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a",
+      "parameters_including_vision": 4659865088
+    },
+    "qwen35-9b": {
+      "model_id": "Qwen/Qwen3.5-9B",
+      "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a",
+      "parameters_including_vision": 9653104368
+    },
+    "qwen3-8b": {
+      "model_id": "Qwen/Qwen3-8B",
+      "revision": "b968826d9c46dd6066d109eabc6255188de91218",
+      "parameters_including_vision": 8190735360
+    },
+    "qwen38-27b": {
+      "model_id": "Qwen/Qwen3.8-27B",
+      "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0",
+      "parameters_including_vision": 27781427952
+    }
+  }
+}
