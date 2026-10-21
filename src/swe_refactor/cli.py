@@ -7,7 +7,7 @@ from pathlib import Path
 
 from .core import (ProtocolError, audit_summaries, export_predictions, load_prepared,
                    make_protocol, open_run, prepare, read_json, run_generation,
-                   score_run, validate_run)
+                   reconcile_resume_protocol, score_run, validate_run)
 
 
 def parser() -> argparse.ArgumentParser:
@@ -26,6 +26,12 @@ def parser() -> argparse.ArgumentParser:
     gen.add_argument("--model", required=True, help="an exact model key from models.lock.json")
     gen.add_argument("--split", choices=["dev", "pilot", "test", "all"], default="pilot")
     gen.add_argument("--limit", type=int, help="explicit smoke subset; changes the run protocol and denominator")
+    gen.add_argument("--num-shards", type=int, default=1,
+                     help="split the selected split into this many deterministic, disjoint shards")
+    gen.add_argument("--shard-index", type=int, default=0,
+                     help="zero-based shard index; selected before applying an optional --limit")
+    gen.add_argument("--resume-equivalent-hardware", action="store_true",
+                     help="allow only changed GPU UUID/device indices; record the new environment attempt")
     gen.add_argument("--run", "--run-dir", required=True, type=Path)
     gen.add_argument("--tensor-parallel", type=int, default=1)
     gen.add_argument("--gpu-memory-utilization", type=float, default=.9)
@@ -48,10 +54,14 @@ def main(argv: list[str] | None = None) -> int:
         elif args.command == "generate":
             protocol, tasks = make_protocol(
                 args.prepared, args.model, read_json(args.model_lock), read_json(args.experiment),
-                args.split, args.limit, args.tensor_parallel, args.gpu_memory_utilization, args.tokenize_only)
+                args.split, args.limit, args.tensor_parallel, args.gpu_memory_utilization,
+                args.tokenize_only, num_shards=args.num_shards, shard_index=args.shard_index)
+            protocol, attempt_environment = reconcile_resume_protocol(
+                args.run, protocol, equivalent_hardware=args.resume_equivalent_hardware)
             open_run(args.run, protocol)  # reject mixed provenance before loading any model
             from .inference import VLLMBackend
-            result = run_generation(args.run, protocol, tasks, VLLMBackend(protocol))
+            result = run_generation(args.run, protocol, tasks, VLLMBackend(protocol),
+                                    attempt_environment=attempt_environment)
         elif args.command == "score":
             report = score_run(args.prepared, args.run)
             result = {key: report[key] for key in ("protocol_sha256", "selection_split", "selection_limit", "mode", "all_selected_tasks", "metric_scope")}

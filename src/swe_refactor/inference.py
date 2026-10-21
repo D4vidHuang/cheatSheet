@@ -38,6 +38,7 @@ class VLLMBackend:
                     model=model["model_id"], revision=model["revision"],
                     tokenizer_revision=model["revision"], trust_remote_code=False,
                     dtype="bfloat16", quantization=None, max_model_len=32768,
+                    language_model_only=self.protocol.get("engine_language_model_only", True),
                     tensor_parallel_size=self.protocol["tensor_parallel_size"],
                     gpu_memory_utilization=self.protocol["gpu_memory_utilization"],
                     seed=self.protocol["experiment"]["seed"], max_num_seqs=1,

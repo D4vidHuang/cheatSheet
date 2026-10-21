@@ -12,6 +12,7 @@
   "enable_thinking": false,
   "dtype": "bfloat16",
   "quantization": null,
+  "language_model_only": true,
   "completions_per_task": 1,
   "prompt_version": "java-files-json-v1"
 }

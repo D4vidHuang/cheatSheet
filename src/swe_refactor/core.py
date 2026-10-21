@@ -8,6 +8,7 @@ gold paths, after source, commit diffs, old model predictions, or test outcomes.
 from __future__ import annotations
 
 import contextlib
+import csv
 import datetime as dt
 import hashlib
 import importlib.metadata
@@ -24,6 +25,8 @@ from pathlib import Path, PurePosixPath
 from typing import Any
 
 SCHEMA_VERSION = 1
+PROTOCOL_SCHEMA_VERSION = 2
+SHARD_SELECTION_POLICY = "task_id_sorted_stride_v1"
 TERMINAL_STATUSES = {
     "completed", "invalid_output", "truncated", "out_of_context",
     "generation_error", "tokenized_only",
@@ -293,12 +296,104 @@ def check_config(config: dict) -> None:
             raise ProtocolError(f"protocol requires {key}={expected!r}")
     if type(config.get("seed")) is not int:
         raise ProtocolError("seed must be an integer")
+    if config.get("language_model_only", True) is not True:
+        raise ProtocolError("language_model_only must be true for this text-only benchmark")
+
+
+def select_tasks(tasks: list[dict], split: str, limit: int | None = None,
+                 num_shards: int = 1, shard_index: int = 0) -> list[dict]:
+    """Select a deterministic shard after split filtering, before an optional limit.
+
+    Sorting by immutable task ID makes membership independent of JSONL row order.
+    Striding yields disjoint, balanced shards, including for nondivisible counts.
+    """
+    if split not in {"dev", "pilot", "test", "all"}:
+        raise ProtocolError("unknown task split")
+    if type(num_shards) is not int or num_shards < 1:
+        raise ProtocolError("num_shards must be a positive integer")
+    if type(shard_index) is not int or not 0 <= shard_index < num_shards:
+        raise ProtocolError("shard_index must be between zero and num_shards minus one")
+    if limit is not None and (type(limit) is not int or limit < 1):
+        raise ProtocolError("limit must be a positive integer")
+    identities = [task["task_id"] for task in tasks]
+    if len(identities) != len(set(identities)):
+        raise ProtocolError("task IDs duplicate in selection source")
+    eligible = sorted((task for task in tasks if split == "all" or task["split"] == split),
+                      key=lambda task: task["task_id"])
+    if not eligible:
+        raise ProtocolError("no tasks selected")
+    if num_shards > len(eligible):
+        raise ProtocolError("num_shards exceeds eligible task count and would create empty shards")
+    selected = eligible[shard_index::num_shards]
+    return selected if limit is None else selected[:limit]
+
+
+def protocol_shard(protocol: dict) -> tuple[int, int]:
+    """Read versioned selection metadata; legacy v1 runs remain auditable."""
+    version = protocol.get("schema_version")
+    if type(version) is not int or version not in {1, PROTOCOL_SCHEMA_VERSION}:
+        raise ProtocolError("unsupported run protocol schema")
+    if version == 1:
+        if any(key in protocol for key in ("num_shards", "shard_index", "shard_selection_policy")):
+            raise ProtocolError("legacy protocol cannot claim sharded selection")
+        return 1, 0
+    if protocol.get("shard_selection_policy") != SHARD_SELECTION_POLICY:
+        raise ProtocolError("unsupported shard selection policy")
+    count, index = protocol.get("num_shards"), protocol.get("shard_index")
+    if type(count) is not int or count < 1 or type(index) is not int or not 0 <= index < count:
+        raise ProtocolError("invalid frozen shard coordinates")
+    return count, index
+
+
+def validate_shard_coverage(tasks: list[dict], protocols: list[dict]) -> dict:
+    """Fail closed unless a model's complete shard plan covers its split once.
+
+    The caller supplies the complete prepared task list, not one shard's rows.
+    Environment inventories may differ between allocated nodes; their individual
+    immutable protocols and receipts continue to retain that provenance.
+    """
+    if not protocols:
+        raise ProtocolError("shard plan is empty")
+    first = protocols[0]
+    count, _ = protocol_shard(first)
+    if len(protocols) != count:
+        raise ProtocolError("shard plan is missing or duplicates shard entries")
+    shared_keys = ("schema_version", "dataset_manifest_sha256", "tasks_sha256", "model_key",
+                   "model", "model_lock_sha256", "experiment", "split", "limit", "mode",
+                   "harness_source_sha256", "tensor_parallel_size", "gpu_memory_utilization",
+                   "engine_language_model_only")
+    if first.get("limit") is not None:
+        raise ProtocolError("full shard coverage cannot use a task limit")
+    expected = select_tasks(tasks, first["split"])
+    found, indices, counts = [], set(), {}
+    for protocol in protocols:
+        shard_count, index = protocol_shard(protocol)
+        if shard_count != count or index in indices:
+            raise ProtocolError("shard plan has inconsistent counts or duplicate shard indices")
+        indices.add(index)
+        if any(protocol.get(key) != first.get(key) for key in shared_keys):
+            raise ProtocolError("shard plan mixes model, dataset, source, or experiment protocols")
+        selected = select_tasks(tasks, protocol["split"], None, count, index)
+        ids = [task["task_id"] for task in selected]
+        hashes = {task["task_id"]: task["task_sha256"] for task in selected}
+        if (protocol.get("selected_task_ids") != ids or
+                protocol.get("selected_task_count") != len(ids) or
+                protocol.get("selected_task_sha256") != hashes):
+            raise ProtocolError("frozen shard selection differs from the complete prepared dataset")
+        found.extend(ids)
+        counts[str(index)] = len(ids)
+    expected_ids = [task["task_id"] for task in expected]
+    if len(found) != len(set(found)) or sorted(found) != expected_ids:
+        raise ProtocolError("shard plan omits or duplicates prepared tasks")
+    return {"complete": True, "num_shards": count, "expected_tasks": len(expected_ids),
+            "task_ids_sha256": digest(expected_ids), "shard_task_counts": counts}
 
 
 def make_protocol(prepared: Path, model_key: str, lock: dict, config: dict,
                   split: str, limit: int | None, tensor_parallel: int,
                   gpu_memory_utilization: float, tokenize_only: bool,
-                  environment: dict | None = None) -> tuple[dict, list[dict]]:
+                  environment: dict | None = None, num_shards: int = 1,
+                  shard_index: int = 0) -> tuple[dict, list[dict]]:
     check_config(config)
     manifest, tasks = load_prepared(prepared)
     if lock.get("schema_version") != 1 or model_key not in lock.get("models", {}):
@@ -306,23 +401,20 @@ def make_protocol(prepared: Path, model_key: str, lock: dict, config: dict,
     model = lock["models"][model_key]
     if not re.fullmatch(r"[0-9a-f]{40}", model.get("revision", "")):
         raise ProtocolError("model lock requires an immutable 40-character commit revision")
-    selected = [task for task in tasks if split == "all" or task["split"] == split]
-    if limit is not None:
-        if limit < 1:
-            raise ProtocolError("limit must be positive")
-        selected = selected[:limit]
-    if not selected:
-        raise ProtocolError("no tasks selected")
+    selected = select_tasks(tasks, split, limit, num_shards, shard_index)
     if tensor_parallel < 1 or not 0 < gpu_memory_utilization <= 1:
         raise ProtocolError("invalid GPU engine settings")
-    protocol = {"schema_version": 1, "dataset_manifest_sha256": digest(manifest),
+    protocol = {"schema_version": PROTOCOL_SCHEMA_VERSION, "dataset_manifest_sha256": digest(manifest),
                 "tasks_sha256": manifest["tasks_sha256"], "model_key": model_key,
                 "model": model, "model_lock_sha256": digest(lock), "experiment": config,
                 "split": split, "limit": limit, "selected_task_ids": [t["task_id"] for t in selected],
+                "num_shards": num_shards, "shard_index": shard_index,
+                "shard_selection_policy": SHARD_SELECTION_POLICY,
                 "selected_task_sha256": {t["task_id"]: t["task_sha256"] for t in selected},
                 "selected_task_count": len(selected),
                 "tensor_parallel_size": tensor_parallel,
                 "gpu_memory_utilization": gpu_memory_utilization,
+                "engine_language_model_only": True,
                 "mode": "tokenize_only" if tokenize_only else "generation",
                 "harness_source_sha256": source_fingerprint(),
                 "environment": environment if environment is not None else environment_info()}
@@ -330,6 +422,7 @@ def make_protocol(prepared: Path, model_key: str, lock: dict, config: dict,
 
 
 def open_run(run: Path, protocol: dict) -> str:
+    protocol_shard(protocol)
     protocol_hash = digest(protocol)
     path = run / "protocol.json"
     if path.exists():
@@ -342,6 +435,66 @@ def open_run(run: Path, protocol: dict) -> str:
         write_json(path, protocol)
     (run / "records").mkdir(exist_ok=True)
     return protocol_hash
+
+
+def _hardware_equivalent_environment(environment: dict) -> dict:
+    """Normalize only device identities, preserving type/capacity/software."""
+    if not isinstance(environment, dict):
+        raise ProtocolError("resume requires a recorded environment inventory")
+    inventory = environment.get("gpu_inventory")
+    if not isinstance(inventory, str) or not inventory.strip():
+        raise ProtocolError("equivalent-hardware resume requires a verified GPU inventory")
+    devices, uuids = [], set()
+    for row in csv.reader(inventory.splitlines(), skipinitialspace=True):
+        if len(row) != 4 or any(not item.strip() for item in row):
+            raise ProtocolError("unrecognized GPU inventory; cannot establish hardware equivalence")
+        name, uuid, memory, driver = (item.strip() for item in row)
+        if uuid in uuids:
+            raise ProtocolError("duplicate GPU identity in recorded inventory")
+        uuids.add(uuid)
+        devices.append([name, memory, driver])
+    visible = environment.get("cuda_visible_devices")
+    if visible is None:
+        visible_count = len(devices)
+    elif isinstance(visible, str) and visible.strip():
+        visible_ids = [item.strip() for item in visible.split(",")]
+        if any(not item for item in visible_ids) or len(visible_ids) != len(set(visible_ids)):
+            raise ProtocolError("invalid CUDA_VISIBLE_DEVICES inventory")
+        visible_count = len(visible_ids)
+    else:
+        raise ProtocolError("unverified visible GPU count")
+    if not 1 <= visible_count <= len(devices):
+        raise ProtocolError("visible GPU count differs from recorded inventory")
+    return {**environment, "gpu_inventory": sorted(devices),
+            "cuda_visible_devices": {"visible_device_count": visible_count}}
+
+
+def reconcile_resume_protocol(run: Path, candidate: dict,
+                              equivalent_hardware: bool = False) -> tuple[dict, dict | None]:
+    """Permit explicit device-identity-only drift and retain the original protocol.
+
+    Fresh environments are returned separately for an append-only attempt event.
+    Model/data/settings/source, package versions, kernel, GPU type/capacity/driver,
+    device count, and all other environment fields must still match exactly.
+    """
+    protocol_shard(candidate)
+    path = run / "protocol.json"
+    if not path.exists():
+        return candidate, None
+    frozen = read_json(path)
+    protocol_shard(frozen)
+    if frozen == candidate:
+        return frozen, None
+    difference = "resume refused: model, data, protocol, harness, or environment differs"
+    if not equivalent_hardware:
+        raise ProtocolError(difference)
+    if ({key: value for key, value in candidate.items() if key != "environment"} !=
+            {key: value for key, value in frozen.items() if key != "environment"}):
+        raise ProtocolError(difference)
+    if (_hardware_equivalent_environment(candidate.get("environment")) !=
+            _hardware_equivalent_environment(frozen.get("environment"))):
+        raise ProtocolError(difference + "; hardware/software equivalence was not established")
+    return frozen, candidate["environment"]
 
 
 @contextlib.contextmanager
@@ -446,9 +599,21 @@ def generate_one(task: dict, protocol: dict, backend: Any) -> dict:
     return record
 
 
-def run_generation(run: Path, protocol: dict, tasks: list[dict], backend: Any) -> dict:
+def run_generation(run: Path, protocol: dict, tasks: list[dict], backend: Any,
+                   attempt_environment: dict | None = None) -> dict:
     protocol_hash = open_run(run, protocol)
     with run_lock(run):
+        if [task["task_id"] for task in tasks] != protocol["selected_task_ids"]:
+            raise ProtocolError("generation tasks differ from the frozen protocol selection")
+        if attempt_environment is not None:
+            if (_hardware_equivalent_environment(attempt_environment) !=
+                    _hardware_equivalent_environment(protocol["environment"])):
+                raise ProtocolError("attempt environment is not hardware/software equivalent")
+            append_event(run, {"event": "equivalent_hardware_resume",
+                               "protocol_sha256": protocol_hash,
+                               "environment": attempt_environment,
+                               "environment_sha256": digest(attempt_environment),
+                               "original_environment_sha256": digest(protocol["environment"])})
         for task in tasks:
             path = run / "records" / (task["task_id"] + ".json")
             if path.exists():
@@ -459,13 +624,14 @@ def run_generation(run: Path, protocol: dict, tasks: list[dict], backend: Any) -
             write_json(path, record)
             append_event(run, {"event": "task_finished", "task_id": task["task_id"],
                                "status": record["status"], "record_sha256": record["record_sha256"]})
-        receipt = validate_run(run, tasks)
+        receipt = validate_run(run, tasks, complete_task_set=False)
         write_json(run / "receipt.json", receipt)
         return receipt
 
 
-def validate_run(run: Path, tasks: list[dict]) -> dict:
+def validate_run(run: Path, tasks: list[dict], complete_task_set: bool = True) -> dict:
     protocol = read_json(run / "protocol.json")
+    num_shards, shard_index = protocol_shard(protocol)
     expected = protocol["selected_task_ids"]
     by_id = {task["task_id"]: task for task in tasks}
     if len(expected) != len(set(expected)) or set(expected) - by_id.keys():
@@ -473,6 +639,10 @@ def validate_run(run: Path, tasks: list[dict]) -> dict:
     if (protocol["selected_task_count"] != len(expected) or
             protocol["selected_task_sha256"] != {key: by_id[key]["task_sha256"] for key in expected}):
         raise ProtocolError("protocol selection count or task hashes differ from prepared tasks")
+    if complete_task_set:
+        selected = select_tasks(tasks, protocol["split"], protocol["limit"], num_shards, shard_index)
+        if expected != [task["task_id"] for task in selected]:
+            raise ProtocolError("protocol task selection differs from its frozen split and shard")
     records, invalid, statuses = {}, {}, Counter()
     for task_id in expected:
         path = run / "records" / (task_id + ".json")
@@ -548,6 +718,7 @@ def score_run(prepared: Path, run: Path) -> dict:
 
 def export_predictions(run: Path, output: Path) -> dict:
     protocol = read_json(run / "protocol.json")
+    protocol_shard(protocol)
     records = []
     for task_id in protocol["selected_task_ids"]:
         path = run / "records" / (task_id + ".json")
