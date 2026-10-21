@@ -13,12 +13,22 @@
 - [数据里有什么、六类任务和具体例子](docs/dataset_zh.md)
 - [实验问题、对照、划分、指标与统计](docs/experiment_zh.md)
 - [DAIC01 部署、运行、收据与结果回读](docs/server_runbook_zh.md)
+- [全量运行、分片与恢复说明](docs/full_run_zh.md)
 - [只读数据审计](reports/dataset_audit.json)
 - [服务器预检快照](reports/server_preflight.json)
-- [当前实验状态](reports/experiment_status.json) / [四模型 token 预算审计](reports/token_budget_summary.json)
+- [全量提交回执](reports/full_submission.json) / [全量队列核验](reports/full_queue_status.json)
+- [四模型 token 预算审计](reports/token_budget_summary.json)
 
-2026-10-21：DAIC 因内核漏洞维护暂停新作业，四个技术测试仍排队，**模型输出为 0**。
-数据审计、四个 tokenizer 的全数据预算检查及独立 Java toy 评测已完成；正式性能尚未得到。
+2026-10-21：用户要求全量直接提交。四模型各 1,099 题已安排为四个 array（27805–27808），
+每个 16 个分片，共 64 个 GPU 子作业；汇总作业为 27809。已冻结独立 release 并核验数据/源码。
+DAIC 因内核漏洞维护暂停新作业，目前排队中、模型输出为 0；旧 smoke 作业已取消。
+全量队列覆盖 4,396 个请求，含全部 dev/pilot/test；这与独立的 test-only 比较不同。
+生成及格式诊断不能替代目标重构、真实编译和测试的联合正确率。
+
+```bash
+# 创建独立快照、校验并直接提交全量；相同 run-id 复用已确认的提交回执
+python3 scripts/submit_full_run.py --run-id full-YYYYMMDD-example
+```
 
 当前实现的 **S0** 是“给定开发者重构要求 + 所提供的重构前单文件”的基线。
 121 条跨文件任务缺少目标文件的重构前上下文；整文件 JSON 输出也有长度压力。

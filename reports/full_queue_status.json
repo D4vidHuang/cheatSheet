@@ -1,0 +1,138 @@
+{
+  "checked_at_utc": "2026-10-21T15:32:15.605322+00:00",
+  "run_id": "full-20261021153012Z",
+  "models": {
+    "qwen35-2b": {
+      "array_job_id": "27805",
+      "array_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "subtasks_confirmed": 16,
+      "dataset_tasks": 1099,
+      "status_counts": {
+        "PENDING": 16
+      },
+      "pending_reasons": [
+        "(ReqNodeNotAvail, UnavailableNodes:gpu50)"
+      ]
+    },
+    "qwen35-4b": {
+      "array_job_id": "27806",
+      "array_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "subtasks_confirmed": 16,
+      "dataset_tasks": 1099,
+      "status_counts": {
+        "PENDING": 16
+      },
+      "pending_reasons": [
+        "(ReqNodeNotAvail, UnavailableNodes:gpu50)"
+      ]
+    },
+    "qwen35-9b": {
+      "array_job_id": "27807",
+      "array_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "subtasks_confirmed": 16,
+      "dataset_tasks": 1099,
+      "status_counts": {
+        "PENDING": 16
+      },
+      "pending_reasons": [
+        "(ReqNodeNotAvail, UnavailableNodes:gpu50)"
+      ]
+    },
+    "qwen38-27b": {
+      "array_job_id": "27808",
+      "array_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ],
+      "subtasks_confirmed": 16,
+      "dataset_tasks": 1099,
+      "status_counts": {
+        "PENDING": 16
+      },
+      "pending_reasons": [
+        "(ReqNodeNotAvail, UnavailableNodes:gpu50)"
+      ]
+    }
+  },
+  "expected_total_requests": 4396,
+  "gpu_array_tasks": 64,
+  "all_submitted": true,
+  "aggregate": {
+    "job_id": "27809",
+    "queue": [
+      [
+        "27809",
+        "PENDING",
+        "(Dependency)"
+      ]
+    ]
+  },
+  "model_records_observed": 0,
+  "model_outputs_observed": 0,
+  "functional_performance": null
+}

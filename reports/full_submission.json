@@ -1,0 +1,116 @@
+{
+  "all_submitted": true,
+  "deployment": {
+    "mismatches": [],
+    "verified_files": 44
+  },
+  "expected_total_requests": 4396,
+  "gpu_array_tasks": 64,
+  "jobs": {
+    "aggregate": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=daic-eemcs-st-se",
+        "--partition=all",
+        "--dependency=afterany:27805:27806:27807:27808",
+        "--comment=swe-full:full-20261021153012Z:aggregate",
+        "--chdir=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z",
+        "--export=ALL",
+        "--output=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/logs/aggregate-%j.out",
+        "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/scripts/full_aggregate.sbatch"
+      ],
+      "confirmed_at_utc": "2026-10-21T15:31:27.794431+00:00",
+      "job_id": "27809",
+      "started_at_utc": "2026-10-21T15:31:27.720975+00:00",
+      "status": "confirmed"
+    },
+    "qwen35-2b": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=daic-eemcs-st-se",
+        "--partition=all",
+        "--gres=gpu:nvidia_rtx_pro_6000:1",
+        "--array=0-15%1",
+        "--time=12:00:00",
+        "--job-name=swe-full-qwen35-2b",
+        "--comment=swe-full:full-20261021153012Z:qwen35-2b",
+        "--chdir=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z",
+        "--export=ALL",
+        "--output=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/logs/qwen35-2b-%A_%a.out",
+        "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/scripts/full_array.sbatch"
+      ],
+      "confirmed_at_utc": "2026-10-21T15:31:27.437988+00:00",
+      "job_id": "27805",
+      "started_at_utc": "2026-10-21T15:31:27.359684+00:00",
+      "status": "confirmed"
+    },
+    "qwen35-4b": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=daic-eemcs-st-se",
+        "--partition=all",
+        "--gres=gpu:nvidia_rtx_pro_6000:1",
+        "--array=0-15%1",
+        "--time=12:00:00",
+        "--job-name=swe-full-qwen35-4b",
+        "--comment=swe-full:full-20261021153012Z:qwen35-4b",
+        "--chdir=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z",
+        "--export=ALL",
+        "--output=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/logs/qwen35-4b-%A_%a.out",
+        "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/scripts/full_array.sbatch"
+      ],
+      "confirmed_at_utc": "2026-10-21T15:31:27.530265+00:00",
+      "job_id": "27806",
+      "started_at_utc": "2026-10-21T15:31:27.451913+00:00",
+      "status": "confirmed"
+    },
+    "qwen35-9b": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=daic-eemcs-st-se",
+        "--partition=all",
+        "--gres=gpu:nvidia_rtx_pro_6000:1",
+        "--array=0-15%1",
+        "--time=12:00:00",
+        "--job-name=swe-full-qwen35-9b",
+        "--comment=swe-full:full-20261021153012Z:qwen35-9b",
+        "--chdir=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z",
+        "--export=ALL",
+        "--output=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/logs/qwen35-9b-%A_%a.out",
+        "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/scripts/full_array.sbatch"
+      ],
+      "confirmed_at_utc": "2026-10-21T15:31:27.624121+00:00",
+      "job_id": "27807",
+      "started_at_utc": "2026-10-21T15:31:27.540105+00:00",
+      "status": "confirmed"
+    },
+    "qwen38-27b": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=daic-eemcs-st-se",
+        "--partition=all",
+        "--gres=gpu:nvidia_rtx_pro_6000:1",
+        "--array=0-15%1",
+        "--time=12:00:00",
+        "--job-name=swe-full-qwen38-27b",
+        "--comment=swe-full:full-20261021153012Z:qwen38-27b",
+        "--chdir=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z",
+        "--export=ALL",
+        "--output=/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/logs/qwen38-27b-%A_%a.out",
+        "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/scripts/full_array.sbatch"
+      ],
+      "confirmed_at_utc": "2026-10-21T15:31:27.708496+00:00",
+      "job_id": "27808",
+      "started_at_utc": "2026-10-21T15:31:27.632483+00:00",
+      "status": "confirmed"
+    }
+  },
+  "plan_sha256": "455fd5283beee0dd2f767c801567e46ed6940d7615834183f6ba615cf56abf70",
+  "remote_root": "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z",
+  "run_id": "full-20261021153012Z"
+}
