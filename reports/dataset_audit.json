@@ -1,0 +1,930 @@
+{
+  "anomalies": {
+    "explicit_test_skip_command_tasks": 300,
+    "malformed_build_command_tasks": 93,
+    "replacement_hazards": [
+      {
+        "occurrences": null,
+        "projectName": "pmd",
+        "reason": "empty_before_snippet",
+        "snippet_characters": 0,
+        "type": "Move And Inline Method",
+        "uniqueId": "26bcbd839a79055a0ff037da3c8c54ad2bdfdead_21_27__22_28_65_75"
+      },
+      {
+        "occurrences": 3,
+        "projectName": "junit4",
+        "reason": "nonunique_before_snippet",
+        "snippet_characters": 90,
+        "type": "Move Method",
+        "uniqueId": "37a8aaba8a817b4bebbeebcd645d304601a0c8f0_36_39__104_108"
+      },
+      {
+        "occurrences": 3,
+        "projectName": "junit4",
+        "reason": "nonunique_before_snippet",
+        "snippet_characters": 90,
+        "type": "Move Method",
+        "uniqueId": "37a8aaba8a817b4bebbeebcd645d304601a0c8f0_70_73__104_108"
+      },
+      {
+        "occurrences": null,
+        "projectName": "hibernate-search",
+        "reason": "empty_before_snippet",
+        "snippet_characters": 0,
+        "type": "Move And Inline Method",
+        "uniqueId": "6b65d5b3d028b6cf672822b29edb9610db6adca4_67_70__103_163_228_230"
+      },
+      {
+        "occurrences": 3,
+        "projectName": "hibernate-search",
+        "reason": "nonunique_before_snippet",
+        "snippet_characters": 13,
+        "type": "Move And Inline Method",
+        "uniqueId": "0c6c0d87a14968fd7a417b4943835c7dfadeed0f_78_111__118_152_76_78"
+      },
+      {
+        "occurrences": null,
+        "projectName": "javaparser",
+        "reason": "empty_before_snippet",
+        "snippet_characters": 0,
+        "type": "Move And Inline Method",
+        "uniqueId": "2903fc918dd87be53192aa1065047392f7adf4d1_76_98__79_110_156_161"
+      }
+    ],
+    "same_before_after_whole_source": 0,
+    "upstream_after_compile_false": [
+      {
+        "projectName": "checkstyle",
+        "type": "Extract Method",
+        "uniqueId": "50a9a64b6d70aa722dcf754ad5d46e37784f5b05_154_199_201_217_154_183"
+      },
+      {
+        "projectName": "checkstyle",
+        "type": "Extract Method",
+        "uniqueId": "50a9a64b6d70aa722dcf754ad5d46e37784f5b05_154_199_185_199_154_183"
+      }
+    ]
+  },
+  "audit_schema_version": 1,
+  "build_commands": [
+    {
+      "command": "./gradlew clean build",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "hibernate-orm",
+        "junit5",
+        "mockito"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 172
+    },
+    {
+      "command": "./gradlew clean build -x spotlessJavaCheck -x spotlessMisc -x checkstyleMain -x checkstyleTest",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "jadx"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 18
+    },
+    {
+      "command": "mvn -U clean package -Drat.skip=true -Dmaven.javadoc.skip=true",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "gson",
+        "hertzbeat",
+        "zxing"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 51
+    },
+    {
+      "command": "mvn -U clean package -Drat.skip=true -Dmaven.javadoc.skip=true -DskipTests -pl '!guava-gwt' -am",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": true,
+      "projects": [
+        "guava"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 300
+    },
+    {
+      "command": "mvn clean package -Dcheckstyle.skip=true -Djacoco.skip=false -Drat.skip=true -Dmaven.javadoc.skip=true -Dsurefire.failIfNoSpecifiedTests=false -DfailIfNoTests=false",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "shardingsphere-elasticjob"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 3
+    },
+    {
+      "command": "mvn clean package -Dcheckstyle.skip=true -Djacoco.skip=false -Drat.skip=true -Dmaven.javadoc.skip=true -Dsurefire.failIfNoSpecifiedTests=false -DfailIfNoTests=false -Dtest='!WebAppContainerIntegrationIT,!ContainerIntegrationIT,!OpenLibertyIT'",
+      "contains_test_exclusions": true,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "shiro"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 2
+    },
+    {
+      "command": "mvn clean package -Djacoco.skip=false -Drat.skip=true -Dmaven.javadoc.skip=true -Dsurefire.failIfNoSpecifiedTests=false -DfailIfNoTests=false -Dtest='!AiResponseTransformerPluginTest'",
+      "contains_test_exclusions": true,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "shenyu"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 22
+    },
+    {
+      "command": "mvn clean package -Drat.skip=true -Dmaven.javadoc.skip=true",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "commons-lang",
+        "hibernate-search",
+        "javaparser",
+        "junit4"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 222
+    },
+    {
+      "command": "mvn clean package -Drat.skip=true -Dmaven.javadoc.skip=true -Dtest='!FileUtilsDeleteDirectoryLinuxTestCase,!ObservableInputStreamTest",
+      "contains_test_exclusions": false,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "commons-io"
+      ],
+      "shell_tokenization_error": true,
+      "tasks": 93
+    },
+    {
+      "command": "mvn clean package -Drat.skip=true -Dmaven.javadoc.skip=true -Dtest='!FileUtilsTest,!FileUtilsCleanSymlinksTest,!FileUtilsCleanDirectoryTest,!FileDeleteStrategyTest,!PathUtilsDeleteDirectoryTest,!PathUtilsDeleteFileTest,!PathUtilsDeleteTest'",
+      "contains_test_exclusions": true,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "pmd"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 125
+    },
+    {
+      "command": "mvn clean package -Drat.skip=true -Dmaven.javadoc.skip=true -Dtest='!TestMessageReporter,!XpathRegressionTest,!XdocsPagesTest'",
+      "contains_test_exclusions": true,
+      "explicitly_skips_tests": false,
+      "projects": [
+        "checkstyle"
+      ],
+      "shell_tokenization_error": false,
+      "tasks": 91
+    }
+  ],
+  "by_project": {
+    "checkstyle": 91,
+    "commons-io": 93,
+    "commons-lang": 59,
+    "gson": 21,
+    "guava": 300,
+    "hertzbeat": 9,
+    "hibernate-orm": 63,
+    "hibernate-search": 89,
+    "jadx": 18,
+    "javaparser": 56,
+    "junit4": 18,
+    "junit5": 105,
+    "mockito": 4,
+    "pmd": 125,
+    "shardingsphere-elasticjob": 3,
+    "shenyu": 22,
+    "shiro": 2,
+    "zxing": 21
+  },
+  "by_project_and_type": {
+    "checkstyle": {
+      "Extract And Move Method": 41,
+      "Extract Method": 34,
+      "Inline Method": 5,
+      "Move And Inline Method": 1,
+      "Move And Rename Method": 1,
+      "Move Method": 9
+    },
+    "commons-io": {
+      "Extract And Move Method": 9,
+      "Extract Method": 68,
+      "Inline Method": 4,
+      "Move Method": 12
+    },
+    "commons-lang": {
+      "Extract And Move Method": 4,
+      "Extract Method": 54,
+      "Inline Method": 1
+    },
+    "gson": {
+      "Extract Method": 14,
+      "Move Method": 7
+    },
+    "guava": {
+      "Extract And Move Method": 3,
+      "Extract Method": 7,
+      "Inline Method": 35,
+      "Move And Rename Method": 5,
+      "Move Method": 250
+    },
+    "hertzbeat": {
+      "Extract Method": 9
+    },
+    "hibernate-orm": {
+      "Extract And Move Method": 9,
+      "Extract Method": 52,
+      "Inline Method": 1,
+      "Move And Inline Method": 1
+    },
+    "hibernate-search": {
+      "Extract And Move Method": 15,
+      "Extract Method": 38,
+      "Inline Method": 13,
+      "Move And Inline Method": 7,
+      "Move And Rename Method": 9,
+      "Move Method": 7
+    },
+    "jadx": {
+      "Extract Method": 18
+    },
+    "javaparser": {
+      "Extract And Move Method": 7,
+      "Extract Method": 35,
+      "Inline Method": 2,
+      "Move And Inline Method": 2,
+      "Move Method": 10
+    },
+    "junit4": {
+      "Extract Method": 11,
+      "Inline Method": 3,
+      "Move Method": 4
+    },
+    "junit5": {
+      "Extract And Move Method": 18,
+      "Extract Method": 9,
+      "Move And Rename Method": 2,
+      "Move Method": 76
+    },
+    "mockito": {
+      "Extract And Move Method": 1,
+      "Extract Method": 3
+    },
+    "pmd": {
+      "Extract And Move Method": 29,
+      "Extract Method": 55,
+      "Inline Method": 6,
+      "Move And Inline Method": 3,
+      "Move And Rename Method": 4,
+      "Move Method": 28
+    },
+    "shardingsphere-elasticjob": {
+      "Extract Method": 2,
+      "Move Method": 1
+    },
+    "shenyu": {
+      "Extract And Move Method": 4,
+      "Extract Method": 11,
+      "Inline Method": 1,
+      "Move Method": 6
+    },
+    "shiro": {
+      "Extract Method": 2
+    },
+    "zxing": {
+      "Extract And Move Method": 2,
+      "Extract Method": 19
+    }
+  },
+  "by_type": {
+    "Extract And Move Method": 142,
+    "Extract Method": 441,
+    "Inline Method": 71,
+    "Move And Inline Method": 14,
+    "Move And Rename Method": 21,
+    "Move Method": 410
+  },
+  "context": {
+    "callGraph_present": 262,
+    "callInfo_NA": 456,
+    "callInfo_available": 643,
+    "different_before_after_file_paths": 121
+  },
+  "coverage": {
+    "counter_key_patterns": {
+      "BRANCH,COMPLEXITY,INSTRUCTION,LINE,METHOD": 256,
+      "COMPLEXITY,INSTRUCTION,LINE,METHOD": 110,
+      "testMethod": 733
+    },
+    "jacoco_counter_tasks": 366,
+    "testMethod_marker_tasks": 733,
+    "test_source_path_tasks": 733
+  },
+  "dataset": {
+    "bytes": 67505459,
+    "path": "data/SWE-Refactor/pure_refactoring_data.json",
+    "sha256": "69e1846e6f1624cb693262de2648c973470ee2ce8a753e38d1666f5d620c3fdc"
+  },
+  "distinct_project_commit_pairs": 445,
+  "duplicates": {
+    "project_before_snippet": {
+      "distinct": 1024,
+      "duplicate_excess": 75,
+      "groups_with_duplicates": 33,
+      "max_group_size": 30
+    },
+    "project_commit_before_file_and_source": {
+      "distinct": 515,
+      "duplicate_excess": 584,
+      "groups_with_duplicates": 112,
+      "max_group_size": 65
+    },
+    "project_uniqueId": {
+      "distinct": 1099,
+      "duplicate_excess": 0,
+      "groups_with_duplicates": 0,
+      "max_group_size": 1
+    },
+    "uniqueId": {
+      "distinct": 1099,
+      "duplicate_excess": 0,
+      "groups_with_duplicates": 0,
+      "max_group_size": 1
+    }
+  },
+  "evidence_notes": [
+    "description names developer-selected target operations/methods/classes; using it changes operation-only reproduction into guided refactoring.",
+    "after-source and diff fields contain reference answers and must not enter model prompts or retrieval indexes.",
+    "diffLocations/uniqueId contain coordinates from the real change; treat as evaluator metadata unless explicitly defining an oracle-location condition.",
+    "coverageInfo.testMethod is assigned covered=1 in pre_process_data.py when a test method is detected; it is not measured production-method coverage.",
+    "compileResultBefore/Current/testResult/hasTestC are imported metadata, not results of this audit.",
+    "Multiple task IDs share a commit/source snapshot; preserve commit groups in any development/test split and paired uncertainty analysis.",
+    "A changed file path is not a necessary condition for Move Method: methods can move between classes nested in one Java file."
+  ],
+  "examples": [
+    {
+      "description": "Extract And Move Method\tprivate exit(code int) : void extracted from public main(args String...) : void in class com.puppycrawl.tools.checkstyle.Main & moved to class com.puppycrawl.tools.checkstyle.Main.ExitHelper",
+      "filePathAfter": "src/main/java/com/puppycrawl/tools/checkstyle/Main.java",
+      "filePathBefore": "src/main/java/com/puppycrawl/tools/checkstyle/Main.java",
+      "methodNameBefore": "com.puppycrawl.tools.checkstyle.Main#main",
+      "projectName": "checkstyle",
+      "type": "Extract And Move Method",
+      "uniqueId": "664227cd5bf9c649847461d8055a7ee573f483e5_99_155_876_886_99_153"
+    },
+    {
+      "description": "Extract Method\tprivate isIgnoredOverriddenMethod(ast DetailAST) : boolean extracted from private shouldIgnoreNumberOfParameters(ast DetailAST) : boolean in class com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck",
+      "filePathAfter": "src/main/java/com/puppycrawl/tools/checkstyle/checks/sizes/ParameterNumberCheck.java",
+      "filePathBefore": "src/main/java/com/puppycrawl/tools/checkstyle/checks/sizes/ParameterNumberCheck.java",
+      "methodNameBefore": "com.puppycrawl.tools.checkstyle.checks.sizes.ParameterNumberCheck#shouldIgnoreNumberOfParameters",
+      "projectName": "checkstyle",
+      "type": "Extract Method",
+      "uniqueId": "deb11214fd5790ed565fbced0dc1ce67846a0653_134_145_168_176_158_166"
+    },
+    {
+      "description": "Inline Method\tprivate resetState() : void inlined to public processLines(fileText FileText) : void in class com.puppycrawl.tools.checkstyle.checks.regexp.SinglelineDetector",
+      "filePathAfter": "src/main/java/com/puppycrawl/tools/checkstyle/checks/regexp/SinglelineDetector.java",
+      "filePathBefore": "src/main/java/com/puppycrawl/tools/checkstyle/checks/regexp/SinglelineDetector.java",
+      "methodNameBefore": "com.puppycrawl.tools.checkstyle.checks.regexp.SinglelineDetector#resetState",
+      "projectName": "checkstyle",
+      "type": "Inline Method",
+      "uniqueId": "67b98ab96e15fba231ca494c7ce3752cce0a9654_57_71__61_75_86_91"
+    },
+    {
+      "description": "Move And Inline Method\tpublic createFullType(typeAST DetailAST) : FullIdent moved from class com.puppycrawl.tools.checkstyle.utils.CheckUtil to class com.puppycrawl.tools.checkstyle.checks.metrics.AbstractClassCouplingCheck.ClassContext & inlined to public visitType(ast DetailAST) : void",
+      "filePathAfter": "src/main/java/com/puppycrawl/tools/checkstyle/checks/metrics/AbstractClassCouplingCheck.java",
+      "filePathBefore": "src/main/java/com/puppycrawl/tools/checkstyle/checks/metrics/AbstractClassCouplingCheck.java",
+      "methodNameBefore": "com.puppycrawl.tools.checkstyle.utils.CheckUtil#createFullType",
+      "projectName": "checkstyle",
+      "type": "Move And Inline Method",
+      "uniqueId": "e2c6e148a92e01b3c6037b33440ee7006f742793_373_383__372_388_79_87"
+    },
+    {
+      "description": "Move And Rename Method\tprivate isWhitespace(codePoints int[], index int) : boolean from class com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck to public isCodePointWhitespace(codePoints int[], index int) : boolean from class com.puppycrawl.tools.checkstyle.utils.CommonUtil",
+      "filePathAfter": "src/main/java/com/puppycrawl/tools/checkstyle/utils/CommonUtil.java",
+      "filePathBefore": "src/main/java/com/puppycrawl/tools/checkstyle/checks/whitespace/NoWhitespaceBeforeCheck.java",
+      "methodNameBefore": "com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck#isWhitespace",
+      "projectName": "checkstyle",
+      "type": "Move And Rename Method",
+      "uniqueId": "7a9913aa64f911e41eae958b757e73a5d2f93205_232_247__629_644"
+    },
+    {
+      "description": "Move Method\tpublic setLocale(locale Locale) : void from class com.puppycrawl.tools.checkstyle.api.Violation to public setLocale(locale Locale) : void from class com.puppycrawl.tools.checkstyle.LocalizedMessage",
+      "filePathAfter": "src/main/java/com/puppycrawl/tools/checkstyle/LocalizedMessage.java",
+      "filePathBefore": "src/main/java/com/puppycrawl/tools/checkstyle/api/Violation.java",
+      "methodNameBefore": "com.puppycrawl.tools.checkstyle.api.Violation#setLocale",
+      "projectName": "checkstyle",
+      "type": "Move Method",
+      "uniqueId": "65655da48ab358df81d37532cca208969a0bbded_361_373__83_95"
+    }
+  ],
+  "input_size_characters": {
+    "callInfo": {
+      "max": 49496,
+      "min": 3,
+      "p50": 261,
+      "p90": 2045,
+      "p95": 3180,
+      "p99": 12975
+    },
+    "sourceCodeAfterForWhole": {
+      "max": 390360,
+      "min": 546,
+      "p50": 15855,
+      "p90": 41718,
+      "p95": 76221,
+      "p99": 146653
+    },
+    "sourceCodeAfterRefactoring": {
+      "max": 9240,
+      "min": 47,
+      "p50": 552,
+      "p90": 1921,
+      "p95": 2751,
+      "p99": 4441
+    },
+    "sourceCodeBeforeForWhole": {
+      "max": 390360,
+      "min": 449,
+      "p50": 15153,
+      "p90": 47080,
+      "p95": 74845,
+      "p99": 144040
+    },
+    "sourceCodeBeforeRefactoring": {
+      "max": 9077,
+      "min": 0,
+      "p50": 465,
+      "p90": 1705,
+      "p95": 2623,
+      "p99": 5727
+    }
+  },
+  "java_path_tasks": 1099,
+  "jdk": {
+    "1.8": 105,
+    "11": 482,
+    "17": 318,
+    "21": 194
+  },
+  "metadata_flags": {
+    "compileResultBefore": {
+      "True": 1099
+    },
+    "compileResultCurrent": {
+      "False": 2,
+      "True": 1097
+    },
+    "hasTestC": {
+      "<missing>": 1098,
+      "True": 1
+    },
+    "isPureRefactoring": {
+      "True": 1099
+    },
+    "moveFileExist": {
+      "True": 1099
+    },
+    "testResult": {
+      "<missing>": 1,
+      "True": 1098
+    }
+  },
+  "per_project_copies": {
+    "canonical_projects_missing_from_copies": [
+      "gson",
+      "guava",
+      "hertzbeat",
+      "jadx",
+      "shardingsphere-elasticjob",
+      "shenyu",
+      "shiro",
+      "zxing"
+    ],
+    "canonical_tasks_missing_from_copies": 396,
+    "distinct_ids": 703,
+    "files": [
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/checkstyle/checkstyle_pure_refactoring_data.json",
+        "projects": {
+          "checkstyle": 91
+        },
+        "records_differing_from_canonical": 91,
+        "sha256": "9639f660f33bef904ea37bb6b89177fcaaed2176b8cc600266a8a8793ff0ce09",
+        "tasks": 91
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/commons-io/commons-io_pure_refactoring_data.json",
+        "projects": {
+          "commons-io": 93
+        },
+        "records_differing_from_canonical": 93,
+        "sha256": "942843e288490643b2c6e02babc99e180ab25962777b740877a4bd94782621f3",
+        "tasks": 93
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/commons-lang/commons-lang_pure_refactoring_data.json",
+        "projects": {
+          "commons-lang": 59
+        },
+        "records_differing_from_canonical": 59,
+        "sha256": "e69a85772e0a75d33faf4c51a306ec939f7129bfa56b8338b089346306ed3991",
+        "tasks": 59
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/hibernate-orm/hibernate-orm_pure_refactoring_data.json",
+        "projects": {
+          "hibernate-orm": 63
+        },
+        "records_differing_from_canonical": 63,
+        "sha256": "722dd53ff9a655e8b0a0d71e48354485e1ea2cea1b6c7e80f715af892040d5a5",
+        "tasks": 63
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/hibernate-search/hibernate-search_pure_refactoring_data.json",
+        "projects": {
+          "hibernate-search": 89
+        },
+        "records_differing_from_canonical": 89,
+        "sha256": "c46d662a425ec2edc1f1c932045f1200858cd0cdf94187f2d5b4a0fa7bdc5a76",
+        "tasks": 89
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/javaparser/javaparser_pure_refactoring_data.json",
+        "projects": {
+          "javaparser": 56
+        },
+        "records_differing_from_canonical": 56,
+        "sha256": "a0630651268aa3c445d4bc1af6844d7ed2e8f65a8e1c89452ab6689b5b04c59b",
+        "tasks": 56
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/junit4/junit4_pure_refactoring_data.json",
+        "projects": {
+          "junit4": 18
+        },
+        "records_differing_from_canonical": 18,
+        "sha256": "c6045e4502340bb76e5b72840fdec8075516a35370d7b2ca44387c33905b7e0e",
+        "tasks": 18
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/junit5/junit5_pure_refactoring_data.json",
+        "projects": {
+          "junit5": 105
+        },
+        "records_differing_from_canonical": 105,
+        "sha256": "71f3806a57020a2e73a5525414b9c879c082d506835f06d4df3ead28c15c6766",
+        "tasks": 105
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/mockito/mockito_pure_refactoring_data.json",
+        "projects": {
+          "mockito": 4
+        },
+        "records_differing_from_canonical": 4,
+        "sha256": "de448258b96cf7103af7812f7438cafbd2356b0999bb472f2aa2fb22062c88f5",
+        "tasks": 4
+      },
+      {
+        "ids_absent_from_canonical": [],
+        "path": "data/SWE-Refactor/code/data/pmd/pmd_pure_refactoring_data.json",
+        "projects": {
+          "pmd": 125
+        },
+        "records_differing_from_canonical": 125,
+        "sha256": "ec414aeabc02e35dc7943a9750c62cf45e2ae91c7aed4924980e89b4456b29ce",
+        "tasks": 125
+      }
+    ],
+    "task_rows": 703
+  },
+  "projects": 18,
+  "schema": {
+    "callGraph": {
+      "empty": 0,
+      "missing": 837,
+      "null": 0,
+      "present": 262,
+      "types": {
+        "dict": 262
+      }
+    },
+    "callInfo": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "classNameBefore": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "classNameBeforeSet": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "classSignatureBefore": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "classSignatureBeforeSet": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "commitId": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "compileCommand": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "compileJDK": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "float": 105,
+        "int": 994
+      }
+    },
+    "compileResultBefore": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "bool": 1099
+      }
+    },
+    "compileResultCurrent": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "bool": 1099
+      }
+    },
+    "coverageInfo": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "dict": 1099
+      }
+    },
+    "description": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "diffLocations": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "diffSourceCode": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "diffSourceCodeSet": {
+      "empty": 516,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "filePathAfter": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "filePathBefore": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "hasTestC": {
+      "empty": 0,
+      "missing": 1098,
+      "null": 0,
+      "present": 1,
+      "types": {
+        "bool": 1
+      }
+    },
+    "invokedMethodSet": {
+      "empty": 456,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "isPureRefactoring": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "bool": 1099
+      }
+    },
+    "methodNameBefore": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "methodNameBeforeSet": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "moveFileExist": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "bool": 1099
+      }
+    },
+    "packageNameBefore": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "projectName": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "purityCheckResultList": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "list": 1099
+      }
+    },
+    "sourceCodeAfterForWhole": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "sourceCodeAfterRefactoring": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "sourceCodeBeforeForWhole": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "sourceCodeBeforeRefactoring": {
+      "empty": 3,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "testResult": {
+      "empty": 0,
+      "missing": 1,
+      "null": 0,
+      "present": 1098,
+      "types": {
+        "bool": 1098
+      }
+    },
+    "type": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    },
+    "uniqueId": {
+      "empty": 0,
+      "missing": 0,
+      "null": 0,
+      "present": 1099,
+      "types": {
+        "str": 1099
+      }
+    }
+  },
+  "scope": "Local supplied files only; upstream metadata is not live compilation/test evidence.",
+  "tasks": 1099
+}

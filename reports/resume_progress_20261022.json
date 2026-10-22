@@ -1,0 +1,1239 @@
+{
+  "report_path": "/tudelft.net/staff-umbrella/cheatsheet research/swe-refactor-qwen-20261021/releases/full-20261021153012Z/reports/progress_20261022.json",
+  "report_file_sha256": "3e8591e741b73e380a32b38727c7747a41b899082eb46f84fced4a8bb1bbaa24",
+  "report_sha256": "3b869e10a654f69b12ae2c556f851a90828169128da1893597d3dc0403cb079a",
+  "plan_sha256": "455fd5283beee0dd2f767c801567e46ed6940d7615834183f6ba615cf56abf70",
+  "checked_at_utc": "2026-10-22T08:59:42.299814+00:00",
+  "complete": false,
+  "all_planned_requests": {
+    "cost_scope": "Sums from valid task receipts only; missing measurements stay null. generation_seconds excludes reported engine initialization. These sums are not scheduler wall time or allocated GPU hours.",
+    "costs": {
+      "elapsed_seconds": {
+        "measured_records": 1449,
+        "sum": 64249.861493145
+      },
+      "engine_initialization_seconds": {
+        "measured_records": 1449,
+        "sum": 4663.436841235006
+      },
+      "generation_seconds": {
+        "measured_records": 1409,
+        "sum": 59569.558249861
+      },
+      "input_tokens": {
+        "measured_records": 1449,
+        "sum": 9845972
+      },
+      "output_tokens": {
+        "measured_records": 1449,
+        "sum": 6212140
+      },
+      "tokenization_seconds": {
+        "measured_records": 1449,
+        "sum": 16.06549657199254
+      }
+    },
+    "denominator": 4396,
+    "exact_stored_after_file": {
+      "count": 5,
+      "rate": 0.0011373976342129207
+    },
+    "failure_denominators": {
+      "all_planned_requests": 4396,
+      "completed_format_valid": 735,
+      "strict_functional_evaluation_performed": 0,
+      "valid_record_with_generation_failure": 714,
+      "without_nonempty_model_output": 2987,
+      "without_valid_record": 2947
+    },
+    "format_valid": {
+      "count": 735,
+      "rate": 0.16719745222929935
+    },
+    "functional_success": null,
+    "nonempty_model_outputs": 1409,
+    "output_tokens_per_generation_second": null,
+    "refactoring_success": null,
+    "status_counts": {
+      "completed": 735,
+      "invalid_output": 288,
+      "missing": 2947,
+      "out_of_context": 40,
+      "truncated": 386
+    },
+    "unchanged_before_response": {
+      "count": 192,
+      "rate": 0.04367606915377616
+    },
+    "valid_records": 1449
+  },
+  "models": {
+    "qwen35-2b": {
+      "all_selected_tasks": {
+        "cost_scope": "Sums from valid task receipts only; missing measurements stay null. generation_seconds excludes reported engine initialization. These sums are not scheduler wall time or allocated GPU hours.",
+        "costs": {
+          "elapsed_seconds": {
+            "measured_records": 621,
+            "sum": 12079.395770346999
+          },
+          "engine_initialization_seconds": {
+            "measured_records": 621,
+            "sum": 1633.4734216960026
+          },
+          "generation_seconds": {
+            "measured_records": 606,
+            "sum": 10438.674586797
+          },
+          "input_tokens": {
+            "measured_records": 621,
+            "sum": 4218150
+          },
+          "output_tokens": {
+            "measured_records": 621,
+            "sum": 2796159
+          },
+          "tokenization_seconds": {
+            "measured_records": 621,
+            "sum": 6.899378254001093
+          }
+        },
+        "denominator": 1099,
+        "exact_stored_after_file": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "failure_denominators": {
+          "all_planned_requests": 1099,
+          "completed_format_valid": 357,
+          "strict_functional_evaluation_performed": 0,
+          "valid_record_with_generation_failure": 264,
+          "without_nonempty_model_output": 493,
+          "without_valid_record": 478
+        },
+        "format_valid": {
+          "count": 357,
+          "rate": 0.3248407643312102
+        },
+        "functional_success": null,
+        "nonempty_model_outputs": 606,
+        "output_tokens_per_generation_second": null,
+        "refactoring_success": null,
+        "status_counts": {
+          "completed": 357,
+          "invalid_output": 60,
+          "missing": 478,
+          "out_of_context": 15,
+          "truncated": 189
+        },
+        "unchanged_before_response": {
+          "count": 169,
+          "rate": 0.1537761601455869
+        },
+        "valid_records": 621
+      },
+      "coverage": {
+        "accepted_protocol_task_count": 621,
+        "accepted_protocol_unique_tasks": 621,
+        "complete_disjoint_partition": false,
+        "expected_tasks": 1099
+      },
+      "complete": false,
+      "shards": [
+        {
+          "shard_index": 0,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 44,
+            "invalid_output": 7,
+            "truncated": 18
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 1,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 32,
+            "invalid_output": 12,
+            "out_of_context": 3,
+            "truncated": 22
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 2,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 51,
+            "invalid_output": 2,
+            "out_of_context": 2,
+            "truncated": 14
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 3,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 41,
+            "invalid_output": 6,
+            "out_of_context": 4,
+            "truncated": 18
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 4,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 36,
+            "invalid_output": 8,
+            "out_of_context": 3,
+            "truncated": 22
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 5,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 33,
+            "invalid_output": 11,
+            "out_of_context": 1,
+            "truncated": 24
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 6,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 40,
+            "invalid_output": 3,
+            "truncated": 26
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 7,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 39,
+            "invalid_output": 3,
+            "out_of_context": 1,
+            "truncated": 26
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 8,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 41,
+            "invalid_output": 8,
+            "out_of_context": 1,
+            "truncated": 19
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 9,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 10,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 11,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 12,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 13,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 14,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 15,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        }
+      ]
+    },
+    "qwen35-4b": {
+      "all_selected_tasks": {
+        "cost_scope": "Sums from valid task receipts only; missing measurements stay null. generation_seconds excludes reported engine initialization. These sums are not scheduler wall time or allocated GPU hours.",
+        "costs": {
+          "elapsed_seconds": {
+            "measured_records": 414,
+            "sum": 13683.261727743014
+          },
+          "engine_initialization_seconds": {
+            "measured_records": 414,
+            "sum": 1182.737358801001
+          },
+          "generation_seconds": {
+            "measured_records": 401,
+            "sum": 12495.843782337008
+          },
+          "input_tokens": {
+            "measured_records": 414,
+            "sum": 2821697
+          },
+          "output_tokens": {
+            "measured_records": 414,
+            "sum": 1672782
+          },
+          "tokenization_seconds": {
+            "measured_records": 414,
+            "sum": 4.46131380200346
+          }
+        },
+        "denominator": 1099,
+        "exact_stored_after_file": {
+          "count": 1,
+          "rate": 0.0009099181073703367
+        },
+        "failure_denominators": {
+          "all_planned_requests": 1099,
+          "completed_format_valid": 169,
+          "strict_functional_evaluation_performed": 0,
+          "valid_record_with_generation_failure": 245,
+          "without_nonempty_model_output": 698,
+          "without_valid_record": 685
+        },
+        "format_valid": {
+          "count": 169,
+          "rate": 0.1537761601455869
+        },
+        "functional_success": null,
+        "nonempty_model_outputs": 401,
+        "output_tokens_per_generation_second": null,
+        "refactoring_success": null,
+        "status_counts": {
+          "completed": 169,
+          "invalid_output": 139,
+          "missing": 685,
+          "out_of_context": 13,
+          "truncated": 93
+        },
+        "unchanged_before_response": {
+          "count": 18,
+          "rate": 0.01637852593266606
+        },
+        "valid_records": 414
+      },
+      "coverage": {
+        "accepted_protocol_task_count": 414,
+        "accepted_protocol_unique_tasks": 414,
+        "complete_disjoint_partition": false,
+        "expected_tasks": 1099
+      },
+      "complete": false,
+      "shards": [
+        {
+          "shard_index": 0,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 33,
+            "invalid_output": 23,
+            "truncated": 13
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 1,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 25,
+            "invalid_output": 25,
+            "out_of_context": 3,
+            "truncated": 16
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 2,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 25,
+            "invalid_output": 32,
+            "out_of_context": 2,
+            "truncated": 10
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 3,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 30,
+            "invalid_output": 19,
+            "out_of_context": 4,
+            "truncated": 16
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 4,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 29,
+            "invalid_output": 19,
+            "out_of_context": 3,
+            "truncated": 18
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 5,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 27,
+            "invalid_output": 21,
+            "out_of_context": 1,
+            "truncated": 20
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 6,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 7,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 8,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 9,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 10,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 11,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 12,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 13,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 14,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 15,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        }
+      ]
+    },
+    "qwen35-9b": {
+      "all_selected_tasks": {
+        "cost_scope": "Sums from valid task receipts only; missing measurements stay null. generation_seconds excludes reported engine initialization. These sums are not scheduler wall time or allocated GPU hours.",
+        "costs": {
+          "elapsed_seconds": {
+            "measured_records": 276,
+            "sum": 15530.66522007299
+          },
+          "engine_initialization_seconds": {
+            "measured_records": 276,
+            "sum": 1012.6466632389994
+          },
+          "generation_seconds": {
+            "measured_records": 267,
+            "sum": 14514.690303706999
+          },
+          "input_tokens": {
+            "measured_records": 276,
+            "sum": 1888267
+          },
+          "output_tokens": {
+            "measured_records": 276,
+            "sum": 1169517
+          },
+          "tokenization_seconds": {
+            "measured_records": 276,
+            "sum": 3.171987791005421
+          }
+        },
+        "denominator": 1099,
+        "exact_stored_after_file": {
+          "count": 0,
+          "rate": 0.0
+        },
+        "failure_denominators": {
+          "all_planned_requests": 1099,
+          "completed_format_valid": 138,
+          "strict_functional_evaluation_performed": 0,
+          "valid_record_with_generation_failure": 138,
+          "without_nonempty_model_output": 832,
+          "without_valid_record": 823
+        },
+        "format_valid": {
+          "count": 138,
+          "rate": 0.12556869881710647
+        },
+        "functional_success": null,
+        "nonempty_model_outputs": 267,
+        "output_tokens_per_generation_second": null,
+        "refactoring_success": null,
+        "status_counts": {
+          "completed": 138,
+          "invalid_output": 60,
+          "missing": 823,
+          "out_of_context": 9,
+          "truncated": 69
+        },
+        "unchanged_before_response": {
+          "count": 4,
+          "rate": 0.003639672429481347
+        },
+        "valid_records": 276
+      },
+      "coverage": {
+        "accepted_protocol_task_count": 276,
+        "accepted_protocol_unique_tasks": 276,
+        "complete_disjoint_partition": false,
+        "expected_tasks": 1099
+      },
+      "complete": false,
+      "shards": [
+        {
+          "shard_index": 0,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 36,
+            "invalid_output": 18,
+            "truncated": 15
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 1,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 32,
+            "invalid_output": 13,
+            "out_of_context": 3,
+            "truncated": 21
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 2,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 34,
+            "invalid_output": 18,
+            "out_of_context": 2,
+            "truncated": 15
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 3,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 36,
+            "invalid_output": 11,
+            "out_of_context": 4,
+            "truncated": 18
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 4,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 5,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 6,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 7,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 8,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 9,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 10,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 11,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 12,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 13,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 14,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 15,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        }
+      ]
+    },
+    "qwen38-27b": {
+      "all_selected_tasks": {
+        "cost_scope": "Sums from valid task receipts only; missing measurements stay null. generation_seconds excludes reported engine initialization. These sums are not scheduler wall time or allocated GPU hours.",
+        "costs": {
+          "elapsed_seconds": {
+            "measured_records": 138,
+            "sum": 22956.538774981997
+          },
+          "engine_initialization_seconds": {
+            "measured_records": 138,
+            "sum": 834.5793974990025
+          },
+          "generation_seconds": {
+            "measured_records": 135,
+            "sum": 22120.34957701999
+          },
+          "input_tokens": {
+            "measured_records": 138,
+            "sum": 917858
+          },
+          "output_tokens": {
+            "measured_records": 138,
+            "sum": 573682
+          },
+          "tokenization_seconds": {
+            "measured_records": 138,
+            "sum": 1.5328167249825668
+          }
+        },
+        "denominator": 1099,
+        "exact_stored_after_file": {
+          "count": 4,
+          "rate": 0.003639672429481347
+        },
+        "failure_denominators": {
+          "all_planned_requests": 1099,
+          "completed_format_valid": 71,
+          "strict_functional_evaluation_performed": 0,
+          "valid_record_with_generation_failure": 67,
+          "without_nonempty_model_output": 964,
+          "without_valid_record": 961
+        },
+        "format_valid": {
+          "count": 71,
+          "rate": 0.0646041856232939
+        },
+        "functional_success": null,
+        "nonempty_model_outputs": 135,
+        "output_tokens_per_generation_second": null,
+        "refactoring_success": null,
+        "status_counts": {
+          "completed": 71,
+          "invalid_output": 29,
+          "missing": 961,
+          "out_of_context": 3,
+          "truncated": 35
+        },
+        "unchanged_before_response": {
+          "count": 1,
+          "rate": 0.0009099181073703367
+        },
+        "valid_records": 138
+      },
+      "coverage": {
+        "accepted_protocol_task_count": 138,
+        "accepted_protocol_unique_tasks": 138,
+        "complete_disjoint_partition": false,
+        "expected_tasks": 1099
+      },
+      "complete": false,
+      "shards": [
+        {
+          "shard_index": 0,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 38,
+            "invalid_output": 15,
+            "truncated": 16
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 1,
+          "expected_tasks": 69,
+          "valid_records": 69,
+          "status_counts": {
+            "completed": 33,
+            "invalid_output": 14,
+            "out_of_context": 3,
+            "truncated": 19
+          },
+          "complete": true,
+          "issues": [],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 2,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 3,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 4,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 5,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 6,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 7,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 8,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 9,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 10,
+          "expected_tasks": 69,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 11,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 12,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 13,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 14,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        },
+        {
+          "shard_index": 15,
+          "expected_tasks": 68,
+          "valid_records": 0,
+          "status_counts": {},
+          "complete": false,
+          "issues": [
+            "protocol.json absent; no model records accepted"
+          ],
+          "invalid_records": {},
+          "extra_record_ids": []
+        }
+      ]
+    }
+  },
+  "issues": [
+    "qwen35-2b/shard-00009: protocol.json absent; no model records accepted",
+    "qwen35-2b/shard-00010: protocol.json absent; no model records accepted",
+    "qwen35-2b/shard-00011: protocol.json absent; no model records accepted",
+    "qwen35-2b/shard-00012: protocol.json absent; no model records accepted",
+    "qwen35-2b/shard-00013: protocol.json absent; no model records accepted",
+    "qwen35-2b/shard-00014: protocol.json absent; no model records accepted",
+    "qwen35-2b/shard-00015: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00006: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00007: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00008: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00009: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00010: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00011: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00012: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00013: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00014: protocol.json absent; no model records accepted",
+    "qwen35-4b/shard-00015: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00004: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00005: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00006: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00007: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00008: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00009: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00010: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00011: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00012: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00013: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00014: protocol.json absent; no model records accepted",
+    "qwen35-9b/shard-00015: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00002: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00003: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00004: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00005: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00006: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00007: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00008: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00009: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00010: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00011: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00012: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00013: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00014: protocol.json absent; no model records accepted",
+    "qwen38-27b/shard-00015: protocol.json absent; no model records accepted"
+  ],
+  "diagnostic_writes_suppressed": 21,
+  "functional_success": null,
+  "refactoring_success": null,
+  "source": "Remote frozen aggregator; per-task record/hash/protocol audit. Existing diagnostics writes suppressed in memory."
+}

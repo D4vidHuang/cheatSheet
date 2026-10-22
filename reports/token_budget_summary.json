@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "scope": "Reference output lengths concern the one stored after-file, not a complete gold patch or a minimum valid solution length.",
+  "task_count": 1099,
+  "dataset_manifest_sha256": "fe7044af9b12043f9c4dab59ff53ac4b3ab711d7f6928dffbbc1f9b44404ff65",
+  "experiment": {
+    "schema_version": 1,
+    "protocol_name": "swe-refactor-stored-before-v1",
+    "context_policy": "stored_before_file_only",
+    "task_mode": "instruction_conditioned_refactoring",
+    "max_model_len": 32768,
+    "max_input_tokens": 24576,
+    "max_output_tokens": 8192,
+    "temperature": 0.0,
+    "top_p": 1.0,
+    "seed": 42,
+    "enable_thinking": false,
+    "dtype": "bfloat16",
+    "quantization": null,
+    "completions_per_task": 1,
+    "prompt_version": "java-files-json-v1"
+  },
+  "experiment_sha256": "fbe683be04d4090f55c5996613df17128011809a06ae2bda9ce82853ab6b66b1",
+  "model_lock_sha256": "ca94974cea45fdd82c05b9c833e4e27a34bfd67bccc1a24eff6252d8984358a5",
+  "audit_script_sha256": "0d3b32455ec8db073ef887770f47da39d06b6e54010dcda2f2f447d44a6956df",
+  "full_report_sha256": "ef485a1c9e883566913d36ac153b79831b36d2a7e5c61afe4a6aa6576648cccb",
+  "runtime_packages": {
+    "vllm": "0.23.0",
+    "transformers": "5.19.0",
+    "torch": "2.11.0"
+  },
+  "raw_report_location": "runs/token_budget_audit/raw.json (ignored; metadata only)",
+  "models": {
+    "qwen35-2b": {
+      "categories": {
+        "input_fit/reference_output_fit": 860,
+        "input_fit/reference_output_overflow": 210,
+        "input_overflow/reference_output_fit": 1,
+        "input_overflow/reference_output_overflow": 28
+      },
+      "input_tokens": {
+        "max": 107455,
+        "median": 3925,
+        "min": 325,
+        "p95": 20507
+      },
+      "model": {
+        "model_id": "Qwen/Qwen3.5-2B",
+        "parameters_including_vision": 2274069824,
+        "revision": "15852e8c16360a2fea060d615a32b45270f8a8fc"
+      },
+      "stored_reference_output_tokens": {
+        "max": 107257,
+        "median": 3995,
+        "min": 174,
+        "p95": 21732
+      },
+      "exact_output_budget_boundary_tasks": 0
+    },
+    "qwen35-4b": {
+      "categories": {
+        "input_fit/reference_output_fit": 860,
+        "input_fit/reference_output_overflow": 210,
+        "input_overflow/reference_output_fit": 1,
+        "input_overflow/reference_output_overflow": 28
+      },
+      "input_tokens": {
+        "max": 107455,
+        "median": 3925,
+        "min": 325,
+        "p95": 20507
+      },
+      "model": {
+        "model_id": "Qwen/Qwen3.5-4B",
+        "parameters_including_vision": 4659865088,
+        "revision": "851bf6e806efd8d0a36b00ddf55e13ccb7b8cd0a"
+      },
+      "stored_reference_output_tokens": {
+        "max": 107257,
+        "median": 3995,
+        "min": 174,
+        "p95": 21732
+      },
+      "exact_output_budget_boundary_tasks": 0
+    },
+    "qwen35-9b": {
+      "categories": {
+        "input_fit/reference_output_fit": 860,
+        "input_fit/reference_output_overflow": 210,
+        "input_overflow/reference_output_fit": 1,
+        "input_overflow/reference_output_overflow": 28
+      },
+      "input_tokens": {
+        "max": 107455,
+        "median": 3925,
+        "min": 325,
+        "p95": 20507
+      },
+      "model": {
+        "model_id": "Qwen/Qwen3.5-9B",
+        "parameters_including_vision": 9653104368,
+        "revision": "c202236235762e1c871ad0ccb60c8ee5ba337b9a"
+      },
+      "stored_reference_output_tokens": {
+        "max": 107257,
+        "median": 3995,
+        "min": 174,
+        "p95": 21732
+      },
+      "exact_output_budget_boundary_tasks": 0
+    },
+    "qwen38-27b": {
+      "categories": {
+        "input_fit/reference_output_fit": 860,
+        "input_fit/reference_output_overflow": 210,
+        "input_overflow/reference_output_fit": 1,
+        "input_overflow/reference_output_overflow": 28
+      },
+      "input_tokens": {
+        "max": 107455,
+        "median": 3925,
+        "min": 325,
+        "p95": 20507
+      },
+      "model": {
+        "model_id": "Qwen/Qwen3.8-27B",
+        "parameters_including_vision": 27781427952,
+        "revision": "1d4bf0f2ff6012fd82039f2fa52739d0dd7c60c0"
+      },
+      "stored_reference_output_tokens": {
+        "max": 107257,
+        "median": 3995,
+        "min": 174,
+        "p95": 21732
+      },
+      "exact_output_budget_boundary_tasks": 0
+    }
+  },
+  "reference_length_note": "The original audit used <=8192 for reference fit; no reference has exactly8192 tokens, so its categories equal the corrected <8192 convention."
+}

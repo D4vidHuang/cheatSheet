@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "protocol_name": "swe-refactor-stored-before-v1",
+  "context_policy": "stored_before_file_only",
+  "task_mode": "instruction_conditioned_refactoring",
+  "max_model_len": 32768,
+  "max_input_tokens": 24576,
+  "max_output_tokens": 8192,
+  "temperature": 0.0,
+  "top_p": 1.0,
+  "seed": 42,
+  "enable_thinking": false,
+  "dtype": "bfloat16",
+  "quantization": null,
+  "language_model_only": true,
+  "completions_per_task": 1,
+  "prompt_version": "java-files-json-v1"
+}
