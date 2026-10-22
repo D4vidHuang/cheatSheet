@@ -1,0 +1,399 @@
+{
+  "checked_at_utc": "2026-10-22T09:01:16.508999+00:00",
+  "run_id": "full-20261021153012Z",
+  "operation": "adjust_remaining_pending_walltimes_for_backfill",
+  "reason": "User requested resume; no duplicate submissions. Completed shard maxima approximately25m/44m/67m/195m.",
+  "max_parallel_gpus": 4,
+  "inference_config_changed": false,
+  "frozen_plan_unchanged": true,
+  "frozen_plan_file_sha256": "f15d9f507222e0fd527b10b3c4e585ff0796777777fbe6925e5d40399cb27bfd",
+  "changes": [
+    {
+      "job_id": "27808_2",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_3",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_4",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_5",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_6",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_7",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_8",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_9",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_10",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_11",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_12",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_13",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_14",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27808_15",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "08:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "08:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_4",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_5",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_6",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_7",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_8",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_9",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_10",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_11",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_12",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_13",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_14",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27807_15",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "04:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "04:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_6",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_7",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_8",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_9",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_10",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_11",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_12",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_13",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_14",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27806_15",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "03:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "03:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_9",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_10",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_11",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_12",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_13",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_14",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    },
+    {
+      "job_id": "27805_15",
+      "old_time_limit": "12:00:00",
+      "requested_time_limit": "02:00:00",
+      "returncode": 0,
+      "error": "",
+      "actual_time_limit": "02:00:00",
+      "state_after": "PENDING"
+    }
+  ]
+}

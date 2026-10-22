@@ -1,0 +1,305 @@
+{
+  "checked_at_utc": "2026-10-22T09:03:04.965168+00:00",
+  "run_id": "full-20261021153012Z",
+  "operation": "continue_existing_arrays_without_resubmitting",
+  "new_submissions": 0,
+  "cancelled_jobs": 0,
+  "verified_existing_records": 1449,
+  "verified_nonempty_model_outputs": 1409,
+  "planned_requests": 4396,
+  "remaining_requests": 2947,
+  "remaining_shards": 43,
+  "queue": [
+    [
+      "27808_13",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_14",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_15",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_11",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_12",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_10",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_8",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_9",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_7",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_6",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_5",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_4",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_3",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27808_2",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_14",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_13",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_12",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_11",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_10",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_9",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_8",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_7",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_6",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_5",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_4",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27807_15",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_15",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_14",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_13",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_12",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_11",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_10",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_9",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_8",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_7",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27806_6",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_15",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_14",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_13",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_11",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_12",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_9",
+      "PENDING",
+      "(Priority)"
+    ],
+    [
+      "27805_10",
+      "PENDING",
+      "(Priority)"
+    ]
+  ],
+  "aggregate_queue": [
+    [
+      "27809",
+      "PENDING",
+      "(Dependency)"
+    ]
+  ],
+  "walltime_adjustments": {
+    "qwen35-2b": "02:00:00",
+    "qwen35-4b": "03:00:00",
+    "qwen35-9b": "04:00:00",
+    "qwen38-27b": "08:00:00"
+  },
+  "walltime_changes_confirmed": 43,
+  "array_throttles_verified": [
+    {
+      "job": "27805",
+      "returncode": 0,
+      "fields": {
+        "JobId": "27805",
+        "ArrayJobId": "27805",
+        "ArrayTaskId": "15%1",
+        "ArrayTaskThrottle": "1",
+        "JobState": "PENDING",
+        "Reason": "Priority",
+        "TimeLimit": "02:00:00"
+      }
+    },
+    {
+      "job": "27806",
+      "returncode": 0,
+      "fields": {
+        "JobId": "27806",
+        "ArrayJobId": "27806",
+        "ArrayTaskId": "15%1",
+        "ArrayTaskThrottle": "1",
+        "JobState": "PENDING",
+        "Reason": "Priority",
+        "TimeLimit": "03:00:00"
+      }
+    },
+    {
+      "job": "27807",
+      "returncode": 0,
+      "fields": {
+        "JobId": "27807",
+        "ArrayJobId": "27807",
+        "ArrayTaskId": "15%1",
+        "ArrayTaskThrottle": "1",
+        "JobState": "PENDING",
+        "Reason": "Priority",
+        "TimeLimit": "04:00:00"
+      }
+    },
+    {
+      "job": "27808",
+      "returncode": 0,
+      "fields": {
+        "JobId": "27808",
+        "ArrayJobId": "27808",
+        "ArrayTaskId": "15%1",
+        "ArrayTaskThrottle": "1",
+        "JobState": "PENDING",
+        "Reason": "Priority",
+        "TimeLimit": "08:00:00"
+      }
+    }
+  ],
+  "frozen_plan_unchanged": true,
+  "actual_share_and_release_write_read_delete_verified": true,
+  "new_running_shards": 0,
+  "functional_performance": null,
+  "evidence_sha256": {
+    "resume_progress_20261022.json": "74cce5ddecec7f196d63fcd454494e4b7ad7b617027e1c406fcef24b7bae2ca8",
+    "resume_scheduler_20261022.json": "43119e74f800f9fec4966519a060c362879e6b91184716f1b401753ab2bab801"
+  }
+}

@@ -14,6 +14,7 @@
 - [实验问题、对照、划分、指标与统计](docs/experiment_zh.md)
 - [DAIC01 部署、运行、收据与结果回读](docs/server_runbook_zh.md)
 - [全量运行、分片与恢复说明](docs/full_run_zh.md)
+- [2026-10-22 续跑记录](docs/resume_20261022_zh.md)
 - [只读数据审计](reports/dataset_audit.json)
 - [服务器预检快照](reports/server_preflight.json)
 - [全量提交回执](reports/full_submission.json) / [全量队列核验](reports/full_queue_status.json)
@@ -21,7 +22,9 @@
 
 2026-10-21：用户要求全量直接提交。四模型各 1,099 题已安排为四个 array（27805–27808），
 每个 16 个分片，共 64 个 GPU 子作业；汇总作业为 27809。已冻结独立 release 并核验数据/源码。
-DAIC 因内核漏洞维护暂停新作业，目前排队中、模型输出为 0；旧 smoke 作业已取消。
+2026-10-22 已复查连接和收据：21 个分片已处理 1,449 条请求，取得 1,409 个非空模型回答。
+剩余 43 个分片、2,947 条请求沿用原数组续跑，当前仍等待 GPU 分配；详见
+[`resume_status_20261022.json`](reports/resume_status_20261022.json)。旧 smoke 作业已取消。
 全量队列覆盖 4,396 个请求，含全部 dev/pilot/test；这与独立的 test-only 比较不同。
 生成及格式诊断不能替代目标重构、真实编译和测试的联合正确率。
 
